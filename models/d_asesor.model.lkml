@@ -18,7 +18,6 @@ explore: clients {}
 
 explore: comments {}
 
-explore: configs {}
 
 explore: essentials {
   join: groups {
@@ -42,30 +41,36 @@ explore: recognitions {}
 
 explore: review {}
 
-explore: stores {
-  join: clients {
-    type: left_outer
-    sql_on: ${stores.client_id} = ${clients.client_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: stores_backup {
-  join: clients {
-    type: left_outer
-    sql_on: ${stores_backup.client_id} = ${clients.client_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: stores_backup_2 {
-  join: clients {
-    type: left_outer
-    sql_on: ${stores_backup_2.client_id} = ${clients.client_id} ;;
-    relationship: many_to_one
-  }
-}
+explore: stores {}
 
 explore: users {}
 
-explore: visits {}
+explore: visits {
+  join: stores {
+    type: inner
+    sql_on: ${visits.store} = ${stores.store_key} ;;
+    relationship: many_to_one}
+
+  join: users {
+    type: left_outer
+    sql_on: ${users.username} = ${visits.uid} ;;
+    relationship: many_to_one}
+
+  join: missings {
+    type: left_outer
+    sql_on: ${missings.session_id} = ${visits.session_id};;
+    relationship: many_to_one}
+
+  join: images {
+    type: left_outer
+    sql_on: ${images.session_id} = ${visits.session_id}
+      ;;
+    relationship: many_to_one}
+
+  join: missings_products {
+    type: left_outer
+    sql_on: ${missings_products.session_id} = ${visits.session_id}
+      ;;
+    relationship: many_to_one}
+
+}
