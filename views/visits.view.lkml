@@ -56,7 +56,11 @@ view: visits {
     type: string
     sql: ${TABLE}."resp" ;;
   }
-
+  dimension: location {
+    type: location
+    sql_latitude: ${lat};;
+    sql_longitude: ${lon};;
+  }
   dimension: session_id {
     type: string
     sql: ${TABLE}."session_id" ;;
