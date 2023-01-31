@@ -71,12 +71,8 @@ view: visits {
     type: string
     sql: ${TABLE}."uid" ;;
   }
-  dimension: Store_ID {
-    type:  string
-    sql: if(${TABLE}."store" = 'true',${resp},${store})
-    ;;
 
-  }
+
   measure: count {
     type: count
     drill_fields: [id]
