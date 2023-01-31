@@ -73,9 +73,8 @@ view: visits {
   }
   dimension: Store_ID {
     type:  string
-    sql: if(${TABLE}."store" = 'true',${resp},
-            if(${store} ='false',${store})
-    );;
+    sql: if(${TABLE}."store" = 'true'OR ${store} ='false',${resp},${store})
+    ;;
 
   }
   measure: count {
