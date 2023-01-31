@@ -33,6 +33,7 @@ view: missings_products {
   }
   measure: ProductosEncontrados {
     type: count
+    drill_fields: [detail*]
     sql: ${prod_exist}='true' ;;
   }
 
