@@ -31,7 +31,7 @@ view: missings_products {
     type: string
     sql:json_extract_path_text(${json_array_elements},'family') ;;
   }
-  measure: exist_counts {
+  measure: ProductosEncontrados {
     type: count
     sql: ${prod_exist}='true' ;;
   }
