@@ -75,9 +75,9 @@ view: visits {
     type: string
     sql: ${TABLE}."uid" ;;
   }
-  dimension: Store_ID {
+  dimension: store_id {
     type: string
-    sql: ${TABLE}."Store_ID" ;;
+    sql: ${TABLE}."store_id" ;;
   }
 
   measure: count {
