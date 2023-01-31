@@ -24,23 +24,9 @@ view: missings {
     type: yesno
     sql: ${TABLE}."generated" ;;
   }
-
-
   dimension: products {
     type: string
     sql: ${TABLE}."products" ;;
-  }
-  dimension: prod_exist {
-    type: string
-    sql:json_extract_path_text(${products},'exist') ;;
-  }
-  dimension: prod_class {
-    type: string
-    sql:json_extract_path_text(${products},'class') ;;
-  }
-  dimension: prod_family {
-    type: string
-    sql:json_extract_path_text(${products},'family') ;;
   }
 
   dimension: session_id {
