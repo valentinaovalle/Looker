@@ -31,6 +31,10 @@ view: missings_products {
     type: string
     sql:json_extract_path_text(${json_array_elements},'family') ;;
   }
+  measure: exist_counts {
+    type: count
+    sql: ${prod_exist}='true' ;;
+  }
 
   set: detail {
     fields: [session_id, json_array_elements]
