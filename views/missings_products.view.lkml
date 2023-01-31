@@ -25,7 +25,7 @@ view: missings_products {
   }
   dimension: prod_class {
     type: string
-    sql:json_extract_path_text(${json_array_elements}},'class') ;;
+    sql:json_extract_path_text(${json_array_elements},'class') ;;
   }
   dimension: prod_family {
     type: string
