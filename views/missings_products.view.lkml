@@ -37,8 +37,8 @@ view: missings_products {
   set: detail {
     fields: [session_id, json_array_elements]
   }
-  measure: ProductosEncontrados {
-    type: sum
-    sql: ${prod_exist}='true' ;;
+  measure: france_count {
+    type: count   # COUNT(CASE WHEN users.country = 'France' THEN 1 ELSE NULL END)
+    filters: [missings_products.prod_exist:"true"]
   }
 }
