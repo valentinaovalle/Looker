@@ -5,10 +5,6 @@ view: missings_products {
        ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [detail*]
-  }
 
   dimension: session_id {
     type: string
@@ -37,8 +33,8 @@ view: missings_products {
   set: detail {
     fields: [session_id, json_array_elements]
   }
-  measure: france_count {
-    type: count   # COUNT(CASE WHEN users.country = 'France' THEN 1 ELSE NULL END)
-    filters: [missings_products.prod_exist:"true"]
+  measure: count {
+    type: count
+    drill_fields: [session_id,prod_exist,prod_class,prod_family]
   }
 }
