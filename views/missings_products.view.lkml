@@ -38,8 +38,7 @@ view: missings_products {
     fields: [session_id, json_array_elements]
   }
   measure: ProductosEncontrados {
-    type: count
-    drill_fields: [detail*]
+    type: sum
     sql: ${prod_exist}='true' ;;
   }
 }
