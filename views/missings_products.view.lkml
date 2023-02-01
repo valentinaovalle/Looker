@@ -24,10 +24,12 @@ view: missings_products {
     sql:json_extract_path_text(${json_array_elements},'exist') ;;
   }
   dimension: prod_class {
+    case_sensitive: no
     type: string
     sql:json_extract_path_text(${json_array_elements},'class') ;;
   }
   dimension: prod_family {
+    case_sensitive: no
     type: string
     sql:json_extract_path_text(${json_array_elements},'family') ;;
   }
